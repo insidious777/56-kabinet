@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block head_scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/scrollMenu.js' %}" type="text/javascript"></script>
+
+    {% if not request.user.is_authenticated %}
+        <script src="{% static 'js/glider.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/slider.js' %}" type="text/javascript"></script>
+    {% endif %}
+
+
+    <script src="{% static 'js/alert.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/zoom.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block page %}
+    <div class="content">
+        <div class="main-img">
+            <img class="main-img-background" src="{% static 'img/main-img.jpg' %}"/>
+            <div class="main-img-tabs">
+
+                {% for category in all_categories %}
+                    {% with menu_items=category.get_menu_items_to_show %}
+                        {% if menu_items %}
+                            <a href="{% url 'menu:main' %}?category_id={{ category.id }}" class="menu-item">
+                                <div class="menu-item-content">
+                                    <img draggable="false" ondragstart="return false;" src="{{ category.icon.url }}"/>
+                                    <p>{{ category.name }}</p>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+
+                {% if additions %}
+                    <a href="{% url 'menu:additions_list' %}" class="menu-item">
+                        <div class="menu-item-content">
+                            <img draggable="false" ondragstart="return false;" src="{% static 'img/additions_icon.png' %}"/>
+                            <p>Додатки</p>
+                        </div>
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+        {% if not request.user.is_authenticated %}
+            {% if actions|length > 0 %}
+            <div class="promotions">
+                <h1 class="promotions-title">Акції</h1>
+                <div class="promotions-control">
+                    <i class="fas fa-long-arrow-alt-left feedback-arrow glider-prev"></i>
+                    <div role="tablist" class="dots"></div>
+                    <i class="fas fa-long-arrow-alt-right feedback-arrow glider-next"></i>
+                </div>
+                <div class="glider">
+                    {% for action_item in actions %}
+                    <div class="promotions-item"><img src="{{ action_item.image.url }}"/></div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
+
+        {% block categories %}
+        <div class="categories">
+            {% for category in menu_categories %}
+                {% with menu_items=category.get_menu_items_to_show %}
+                    {% if menu_items %}
+                        <div class="category">
+                            <h1>{{ category.title }}
+                                {% if category.has_time_restriction %}
+                                    <sup class="category-sup">
+                                    <img src="{% static '/img/clock.png' %}"/>
+
+                                    {% if category.from_time %}
+                                        з {{ category.from_time }}
+                                    {% endif %}
+
+                                    {% if category.to_time %}
+                                        до {{ category.to_time }}
+                                    {% endif %}
+                                    </sup>
+                                {% endif %}
+                            </h1>
+                            <div class="category-cards">
+
+                                {% for menu_item in category.get_menu_items_to_show %}
+                                <div class="category-card-item">
+                                    <img src="{{ menu_item.image.url }}"/>
+                                    <input type="hidden" value="{% if menu_item.hq_image %}{{ menu_item.hq_image.url }}{% else %}{{ menu_item.image.url }}{% endif %}">
+                                    <div class="category-card-item-text">
+                                        <h5 class="card-title">{{ menu_item.title }}</h5>
+                                        <div class="card-dropdown">
+                                            {% if menu_item.description %}
+                                            <p class="card-description">{{ menu_item.description }}</p>
+                                            {% endif %}
+                                            <p class="card-volume">
+                                                {% if menu_item.volume %}
+                                                {{ menu_item.volume }}
+                                                {% endif %}
+                                            </p>
+                                            <div class="price-section">
+                                                <p class="card-price">{{ menu_item.price }}</p>
+                                                {% if menu_item.id in menu_items_in_cart %}
+                                                <img class="item-in-cart-icon" src="{% static 'img/bag1.png' %}">
+                                                {% endif %}
+                                            </div>
+                                            {% if not request.user.is_authenticated and category.can_order and category.can_order_now %}
+                                            <a menu_id="{{ menu_item.id }}" class="add-to-card-button">
+                                                <img src="{% static 'img/bag2.png' %}"/>
+                                                <p>Замовити</p>
+                                            </a>
+                                            {% endif %}
+                                        </div>
+
+                                        <p class="card-volume">
+                                            {% if menu_item.volume %}
+                                                {{ menu_item.volume }}
+                                            {% endif %}
+                                        </p>
+                                        <div class="price-section">
+                                            <p class="card-price">{{ menu_item.price }}</p>
+                                            {% if menu_item.id in menu_items_in_cart %}
+                                                <img class="item-in-cart-icon" src="{% static 'img/bag1.png' %}">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+
+            {% if not request.GET.category_id %}
+            <div class="categories">
+                <div class="category">
+                    <h5 class="hashtag">#тут можна все</h5>
+                    <h1>До будь-якої страви ви можете додати</h1>
+                    <div class="category-cards">
+
+                        {% for menu_item in additions %}
+                        <div class="category-card-item">
+                            <img src="{{ menu_item.image.url }}"/>
+                            <div class="category-card-item-text">
+                                <h5 class="card-title">{{ menu_item.title }}</h5>
+                                {% if menu_item.description %}
+                                <p class="card-description">{{ menu_item.description }}</p>
+                                {% endif %}
+                                <div class="price-section">
+                                    <p class="card-price">{{ menu_item.price }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
+        {% endblock %}
+
+        <div style="display: none" class="modal">
+            <div class="modal-content">
+                <i class="far fa-times-circle"></i>
+                <div class="modal-top">
+                    <img class="modal-main-img" src=""/>
+                    <div class="modal-top-text">
+                        <h4>Скрембл з лососем</h4>
+                        <p class="text-color-secondary">Орзо відварена, яйце пашот, вершки, моцарелла, прошуто, пармезанова піна, базилікова олія</p>
+                        <p class="modal-volume"></p>
+                        <div class="modal-middle-box">
+                            <div class="count-box">
+                                <button class="count-box-minus">-</button>
+                                <p class="count-box-number">1</p>
+                                <button class="count-box-plus">+</button>
+                            </div>
+                            <p class="modal-price">99 грн</p>
+
+                        </div>
+                        <div class="modal-buttons">
+                            <a class="modal-additions d-none">
+                                <img src="{% static 'img/add.png' %}"/>
+                                <p>Додатки</p>
+                            </a>
+                            <a class="modal-add-to-cart">
+                                <img src="{% static 'img/bag2.png' %}"/>
+                                <p>В кошик</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: none" class="modal-additions-list">
+                    <h4>Додатки</h4>
+                    <div class="additions-box">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="display: none" class="csrf">{% csrf_token %}</p>
+    </div>
+
+{% endblock %}

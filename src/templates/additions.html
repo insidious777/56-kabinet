@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block page %}
+    <p style="display: none" class="csrf">{% csrf_token %}</p>
+    {{ block.super }}
+{% endblock %}
+
+{% block categories %}
+    <div class="categories">
+        <div class="category">
+            <h1>До будь-якої страви ви можете додати</h1>
+            <div class="category-cards">
+
+                {% for menu_item in additions %}
+                <div class="category-card-item">
+                    <img src="{{ menu_item.image.url }}"/>
+                    <div class="category-card-item-text">
+                        <h5 class="card-title">{{ menu_item.title }}</h5>
+                        {% if menu_item.description %}
+                        <p class="card-description">{{ menu_item.description }}</p>
+                        {% endif %}
+                        <div class="price-section">
+                            <p class="card-price">{{ menu_item.price }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

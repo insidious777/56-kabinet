@@ -1,0 +1,472 @@
+
+
+.content{
+    margin: 0 7vw;
+}
+
+.main-img{
+    margin-top: 45px;
+    position: relative;
+}
+
+.main-img img{
+    width: 100%;
+}
+
+.main-img-tabs{
+    width: 60vw;
+    height: 133px;
+    background-color: #EEE1D9;
+    position: absolute;
+    bottom:-67px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    margin-right: -10px;
+    cursor: grab;
+}
+
+.main-img-tabs::-webkit-scrollbar{
+    display: none;
+}
+
+.menu-item{
+    width: 90px;
+    background-color: rgba(255,255,255,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 18px;
+    height: 100%;
+    box-sizing: border-box;
+    margin-right: 25px;
+    justify-content: space-around;
+}
+
+.menu-item:last-child {
+    margin-right: 0;
+}
+
+.menu-item img{
+    width: 40px;
+}
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    margin: 100px 0;
+}
+
+.category{
+    margin-bottom: 150px;
+}
+
+.category h1{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.category-cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -40px;
+}
+
+.category-card-item{
+    background-color: white;
+    width: calc((100% / 5) - 40px);
+    margin-right: 40px;
+    position: relative;
+    margin-bottom: 180px;
+}
+
+.category-card-item:hover .card-description{
+    display: block;
+}
+
+.category-card-item:hover .add-to-card-button{
+    display: flex;
+}
+
+.category-card-item:hover .category-card-item-text{
+    z-index: 99;
+}
+
+
+.category-card-item img{
+    width: 100%;
+}
+
+.category-card-item-text{
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    font-size: 13px;
+    position: absolute;
+    background-color: white;
+}
+
+.card-title{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.card-description{
+    text-align: justify;
+    display: none;
+    margin-bottom: 20px;
+}
+
+.card-price{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #9E421B;
+}
+
+.add-to-card-button{
+    background-color: #09A76D;
+    color: white;
+    display: none;
+    align-items: center;
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 2px;
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.add-to-card-button img{
+    height: 20px;
+    width: 15px;
+    border-right: 2px solid rgba(255,255,255,0.5);
+    padding-right: 10px;
+    margin-right: 20%;
+}
+
+.hashtag{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #9E421B;
+    margin-bottom: 10px;
+}
+
+
+.promotions{
+    margin-top: 160px;
+    padding-bottom: 100px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.promotions-control{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    right: 23px;
+    top: -20px;
+}
+
+.glider-dots{
+    margin: 20px 30px 0;
+}
+
+.promotions-title{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.promotions-item{
+    margin-right: 35px;
+}
+
+.glider{
+    margin-right: -35px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.glider::-webkit-scrollbar {
+    display: none;
+}
+
+.modal{
+    background: rgba(27, 27, 25, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content{
+    padding: 30px;
+    width: 40%;
+    background: #F2E9E4;
+    border: 1px solid #9E421B;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
+    border-radius: 2px;
+    position: relative;
+}
+
+.fa-times-circle{
+    position: absolute;
+    right: -50px;
+    font-size: 30px;
+    top: 0;
+    color: white;
+}
+
+.count-box{
+    display: flex;
+}
+
+.count-box p{
+    color: #9E421B;
+    margin: 0 25px;
+    font-size: 20px;
+}
+
+.count-box button{
+    width: 24px;
+    height: 24px;
+    border: 1px solid #838383;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F9F4F2;
+    cursor: pointer;
+}
+
+.modal-top{
+    display: flex;
+}
+
+
+.modal-add-to-cart{
+    background-color: #09A76D;
+    color: rgba(249, 244, 242, 0.85);
+    align-items: center;
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 2px;
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+}
+
+.modal-add-to-cart img{
+    height: 20px;
+    width: 15px;
+    border-right: 2px solid rgba(255,255,255,0.5);
+    padding-right: 10px;
+    margin-right: 20%;
+}
+
+.modal-additions{
+    background-color: #F2E9E4;
+    color: #09A76D;
+    align-items: center;
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 2px;
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    border: 1px solid #09A76D;
+    margin-right: 10px;
+}
+
+.modal-additions img{
+    height: 22px;
+    width: 22px;
+    border-right: 2px solid rgba(9,167,109,0.5);
+    padding-right: 10px;
+    margin-right: 20%;
+}
+
+.modal-buttons{
+    display: flex;
+}
+
+.modal-top-text{
+    padding: 30px 0 0 30px;
+}
+
+.modal-middle-box{
+    margin-top: 25px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-middle-box p{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: #9E421B;
+}
+
+.modal-top-text h4{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 25px;
+}
+
+.modal-main-img{
+    height: 100%;
+}
+
+.modal-additions-list{
+    font-family: Turismo CF;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 60px;
+}
+
+.modal-additions-list h4{
+    font-size: 20px;
+}
+
+.additions-box{
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.addition-item{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 46px;
+    position: relative;
+}
+
+.addition-item input{
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+}
+
+.addition-price{
+    position: absolute;
+    left: 45px;
+    top: 25px;
+    color: #9E421B;
+}
+
+@media(max-width: 1370px){
+
+    .category-card-item{
+        width: calc((100% / 3) - 40px);
+    }
+    .dots, .glider-next, .glider-prev{
+        visibility: hidden; !important;
+    }
+}
+
+@media(max-width: 900px){
+
+    header{
+        padding: 15px;
+        margin: 0;
+    }
+
+    .content{
+        padding: 0px;
+        margin: 0;
+    }
+
+
+    .main-img{
+        margin-top: 0;
+    }
+
+    .main-img-background{
+        display: none;
+    }
+
+    .main-img-tabs{
+        width: 100%;
+        margin-bottom: 40px;
+        position: static;
+        transform: none;
+        left: 0;
+        margin-top: 30px;
+    }
+
+    .promotions{
+        margin-top: 40px;
+        padding: 0px 15px 40px;
+    }
+
+    .category{
+        padding: 0 15px;
+        margin-bottom: 80px;
+    }
+
+    .category-card-item{
+        width: calc((100% / 2) - 40px);
+    }
+
+    .category-card-item-text{
+        padding: 16px 8px;
+    }
+
+    .dots, .glider-next, .glider-prev{
+        visibility: hidden; !important;
+    }
+
+    .card-title{
+        font-size: 15px;
+    }
+
+    .card-price{
+        font-size: 15px;
+    }
+
+}

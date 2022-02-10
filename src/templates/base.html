@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}56 Кабінет{% endblock %}</title>
+
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/glider.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    {% endblock %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+    {% block head_scripts %}
+        <script src="https://kit.fontawesome.com/5836184a9d.js" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body>
+
+<header>
+    <div class="header-left-box">
+        <p class="header-hours">
+            <p class="location-text">Чекаємо вас за адресою:</p> <a class="location-link" target="_blank" href="{{ site_settings.address_url }}">{{ site_settings.address }}</a>
+        </p>
+        <p class="header-hours"><span class="text-color-secondary">Будні:</span> <span class="work-schedule">{{ site_settings.work_schedule }}</span> &nbsp;|&nbsp; <span class="text-color-secondary">Вихідні:</span> <span class="work-schedule">{{ site_settings.work_schedule_on_weekend }}</span></p>
+    </div>
+    <a class="header-logo" href="/"><img src="{% static 'img/logo.png' %}"/></a>
+    <div class="header-right-box">
+        <p class="header-text header-phone"><span class="text-color-secondary">Доставка:</span><a class="tel" href="tel:{{ site_settings.phone_number }}">{{ site_settings.phone_number }}</a></p>
+        <div class="header-right-box-buttons">
+            <a target="_blank" href="{{ site_settings.instagram_url }}" class="header-right-box-instagram">
+                <img src="{% static 'img/instagram.png' %}"/>
+            </a>
+            <a target="_blank" href="{{ site_settings.facebook_url }}" class="header-right-box-facebook">
+                <img src="{% static 'img/facebook.png' %}"/>
+            </a>
+            <a href="{% url 'order:cart' %}" class="header-cart-button{% if not total_amount %} d-none{% endif %}">
+                <img src="{% static 'img/bag2.png' %}"/>
+                <p class="header-cart-price">{{ total_amount }} грн</p>
+            </a>
+        </div>
+    </div>
+</header>
+
+{% block page %}
+{% endblock %}
+<header>
+    <div class="header-left-box">
+        <p class="header-hours">
+        <p class="location-text">Чекаємо вас за адресою:</p> <a class="location-link" target="_blank" href="{{ site_settings.address_url }}">{{ site_settings.address }}</a>
+        </p>
+        <p class="header-hours"><span class="text-color-secondary">Будні:</span> <span class="work-schedule">{{ site_settings.work_schedule }}</span> &nbsp;|&nbsp; <span class="text-color-secondary">Вихідні:</span> <span class="work-schedule">{{ site_settings.work_schedule_on_weekend }}</span></p>
+    </div>
+    <div class="header-right-box">
+        <p class="header-text header-phone"><span class="text-color-secondary">Резерв столиків:</span><a class="tel" href="tel:{{ site_settings.phone_number }}">{{ site_settings.phone_number }}</a></p>
+        <div class="header-right-box-buttons">
+            <a target="_blank" href="{{ site_settings.instagram_url }}" class="header-right-box-instagram">
+                <img src="{% static 'img/instagram.png' %}"/>
+            </a>
+            <a target="_blank" href="{{ site_settings.facebook_url }}" class="header-right-box-facebook">
+                <img src="{% static 'img/facebook.png' %}"/>
+            </a>
+        </div>
+    </div>
+</header>
+</body>
+</html>

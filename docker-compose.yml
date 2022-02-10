@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    command: bash -c "
+      python manage.py migrate &&
+      python manage.py collectstatic --no-input &&
+      gunicorn fs_cabinet.wsgi:application --workers 4 --bind 0.0.0.0:8000"
+    container_name: backend
+    volumes:
+      - ./src/:/code
+      - ./src/static_root:/code/static_root
+      - ./src/media_root:/code/media_root
+    expose:
+      - "8000"
+    env_file: .env
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    container_name: nginx
+    volumes:
+      - ./src/static_root:/code/static_root
+      - ./src/media_root:/code/media_root
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,63 @@
+<h3>Замовлення ID {{ order_id }}</h3>
+
+{% for item in order_items %}
+    <div>
+        <strong>{{ item.title }}</strong> - {{ item.count }} шт.
+        {% with addition_items=item.addition_items.all %}
+            {% if addition_items %}
+                <div>Додатки:</div>
+                <ul>
+                    {% for addition_item in addition_items %}
+                        <li>{{ addition_item.title }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endfor %}
+
+Загальна сума: {{ total_amount }}
+
+<h5>Додаткова інформація</h5>
+
+<div>Ім'я: {{ customer_name }}</div>
+<div>Телефон: {{ customer_phone_number }}</div>
+<div>Спосіб доставки: {{ delivery_method }}</div>
+
+{% if self_pickup_time %}
+    <div>Час самовивозу: {{ self_pickup_time }}</div>
+{% endif %}
+
+<div>Спосіб оплати: {{ payment_method }}</div>
+
+{% if payment_required %}
+    <div>Тип оплати: {{ payment_type }}</div>
+    <div>Розмір оплати: {{ payment_amount }}</div>
+    <div>Статус оплати: {{ payment_status }}</div>
+{% endif %}
+
+{% if delivery_address %}
+    <div>Населений пункт: {{ delivery_address.settlement }}</div>
+    <div>Вулиця: {{ delivery_address.street }}</div>
+    <div>Номер будинку: {{ delivery_address.building_number }}</div>
+    {% if delivery_address.apartment_number %}
+        <div>Номер квартири: {{ delivery_address.apartment_number }}</div>
+    {% endif %}
+    {% if delivery_address.entrance_number %}
+        <div>Номер під'їзду: {{ delivery_address.entrance_number }}</div>
+    {% endif %}
+    {% if delivery_address.floor_number %}
+        <div>Поверх: {{ delivery_address.floor_number }}</div>
+    {% endif %}
+    {% if delivery_address.door_phone_number %}
+        <div>Домофон: {{ delivery_address.door_phone_number }}</div>
+    {% endif %}
+{% endif %}
+
+{% if peoples_count %}
+    <div>Кількість осіб: {{ peoples_count }}</div>
+{% endif %}
+
+{% if customer_comment %}
+<div>Коментар: {{ customer_comment }}</div>
+{% endif %}

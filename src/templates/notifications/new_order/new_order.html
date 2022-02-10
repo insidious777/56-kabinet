@@ -1,0 +1,59 @@
+Замовлення ID {{ order_id }}\n
+\n
+{% for item in order_items %}
+    {{ item.title }} - {{ item.count }} шт.\n
+        {% with addition_items=item.addition_items.all %}
+            {% if addition_items %}
+                Додатки:\n
+                {% for addition_item in addition_items %}
+                    - {{ addition_item.title }}\n
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+{% endfor %}
+\n
+Загальна сума: {{ total_amount }}\n
+\n
+Додаткова інформація\n
+\n
+Ім'я: {{ customer_name }}\n
+Телефон: {{ customer_phone_number }}\n
+Спосіб доставки: {{ delivery_method }}\n
+
+{% if self_pickup_time %}
+Час самовивозу: {{ self_pickup_time }}\n
+{% endif %}
+
+Спосіб оплати: {{ payment_method }}\n
+
+{% if payment_required %}
+Тип оплати: {{ payment_type }}\n
+Розмір оплати: {{ payment_amount }}\n
+Статус оплати: {{ payment_status }}\n
+{% endif %}
+
+{% if delivery_address %}
+Населений пункт: {{ delivery_address.settlement }}\n
+Вулиця: {{ delivery_address.street }}\n
+Номер будинку: {{ delivery_address.building_number }}\n
+{% if delivery_address.apartment_number %}
+    Номер квартири: {{ delivery_address.apartment_number }}\n
+{% endif %}
+{% if delivery_address.entrance_number %}
+    Номер під'їзду: {{ delivery_address.entrance_number }}\n
+{% endif %}
+{% if delivery_address.floor_number %}
+    Поверх: {{ delivery_address.floor_number }}\n
+{% endif %}
+{% if delivery_address.door_phone_number %}
+    Домофон: {{ delivery_address.door_phone_number }}\n
+{% endif %}
+{% endif %}
+
+{% if peoples_count %}
+Кількість осіб: {{ peoples_count }}\n
+{% endif %}
+
+{% if customer_comment %}
+Коментар: {{ customer_comment }}\n
+{% endif %}

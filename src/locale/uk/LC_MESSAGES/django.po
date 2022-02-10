@@ -1,0 +1,536 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-22 23:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: fs_cabinet/urls.py:32 fs_cabinet/urls.py:33
+msgid "56 Cabinet"
+msgstr "56 Кабінет"
+
+#: fs_cabinet/urls.py:34
+msgid "Administration"
+msgstr "Адміністрування"
+
+#: menu/apps.py:8
+msgid "Menu"
+msgstr "Меню"
+
+#: menu/models.py:13
+msgid "Icon"
+msgstr "Іконка"
+
+#: menu/models.py:18
+msgctxt "Name"
+msgid "Category name"
+msgstr "Назва"
+
+#: menu/models.py:18
+msgid "Shows in miniatures"
+msgstr "Показується в мініатюрах"
+
+#: menu/models.py:19 menu/models.py:65 menu/models.py:92 order/models.py:186
+#: order/models.py:217
+msgid "Title"
+msgstr "Заголовок"
+
+#: menu/models.py:19
+msgid "Shows in sections on the page"
+msgstr "Показується на розділах сторінки"
+
+#: menu/models.py:21 menu/models.py:67 menu/models.py:100 menu/models.py:126
+msgid "Show"
+msgstr "Показувати"
+
+#: menu/models.py:22 menu/models.py:128
+msgid "Order index"
+msgstr "Порядковий номер"
+
+#: menu/models.py:24
+msgid "From time"
+msgstr "Час з"
+
+#: menu/models.py:25
+msgid "To time"
+msgstr "Час до"
+
+#: menu/models.py:27
+msgid "Can order"
+msgstr "Можливе замовлення"
+
+#: menu/models.py:29 menu/models.py:69 menu/models.py:102 menu/models.py:130
+#: order/models.py:16 order/models.py:41 order/models.py:66 order/models.py:101
+#: order/models.py:192 order/models.py:220
+msgid "Created at"
+msgstr "Створено"
+
+#: menu/models.py:30 menu/models.py:70 menu/models.py:103 menu/models.py:131
+#: order/models.py:17 order/models.py:42 order/models.py:67 order/models.py:102
+#: order/models.py:193 order/models.py:221
+msgid "Updated at"
+msgstr "Останні зміни"
+
+#: menu/models.py:33
+msgid "Menu category"
+msgstr "Категорія меню"
+
+#: menu/models.py:34
+msgid "Menu categories"
+msgstr "Категорії меню"
+
+#: menu/models.py:37
+#, python-format
+msgid "Category %(category_name)s"
+msgstr "Категорія %(category_name)s"
+
+#: menu/models.py:66 menu/models.py:93 order/models.py:187 order/models.py:218
+msgid "Price"
+msgstr "Ціна"
+
+#: menu/models.py:73 order/models.py:215
+msgid "Addition"
+msgstr "Додаток"
+
+#: menu/models.py:74 order/admin.py:18 order/admin.py:73 order/models.py:39
+msgid "Additions"
+msgstr "Додатки"
+
+#: menu/models.py:77
+#, python-format
+msgid "Addition \"%(title)s\""
+msgstr "Додаток \"%(title)s\""
+
+#: menu/models.py:81 menu/models.py:121
+msgid "Image"
+msgstr "Зображення"
+
+#: menu/models.py:86
+msgid "High quality image"
+msgstr "Картинка високої якості"
+
+#: menu/models.py:94
+msgid "Category"
+msgstr "Категорія"
+
+#: menu/models.py:96
+msgid "Possible additions"
+msgstr "Можливі додатки"
+
+#: menu/models.py:96 order/models.py:39
+msgid ""
+"Hold down \"Control\", or \"Command\" on a Mac, to select more than one."
+msgstr ""
+
+#: menu/models.py:98 order/models.py:190
+msgid "Volume"
+msgstr "Об'єм"
+
+#: menu/models.py:99
+msgid "Description"
+msgstr "Опис"
+
+#: menu/models.py:106 order/models.py:36 order/models.py:184
+msgid "Menu item"
+msgstr "Пункт меню"
+
+#: menu/models.py:107
+msgid "Menu items"
+msgstr "Пункти меню"
+
+#: menu/models.py:111
+#, python-format
+msgid "Menu item \"%(menu_item_title)s %(menu_item_volume)s\""
+msgstr "Пункт меню \"%(menu_item_title)s %(menu_item_volume)s\""
+
+#: menu/models.py:116
+#, python-format
+msgid "Menu item \"%(menu_item_title)s\""
+msgstr "Пункт меню \"%(menu_item_title)s\""
+
+#: menu/models.py:120
+msgid "Name"
+msgstr "Назва"
+
+#: menu/models.py:134
+msgid "Action"
+msgstr "Акція"
+
+#: menu/models.py:135
+msgid "Actions"
+msgstr "Акції"
+
+#: menu/models.py:138
+#, python-format
+msgid "Action \"%(name)s\""
+msgstr "Акція \"%(name)s\""
+
+#: order/api/serializers.py:75 order/api/serializers.py:85
+#: order/api/serializers.py:88 order/api/serializers.py:91
+msgid "This field is required."
+msgstr "Це поле обов'язкове."
+
+#: order/apps.py:8 order/models.py:105 order/models.py:120 order/models.py:140
+#: order/models.py:182
+msgid "Order"
+msgstr "Замовлення"
+
+#: order/models.py:14 order/models.py:78
+msgid "Session key"
+msgstr "Ключ сесії"
+
+#: order/models.py:20 order/models.py:35
+msgid "Cart"
+msgstr "Корзина"
+
+#: order/models.py:21
+msgid "Carts"
+msgstr "Корзини"
+
+#: order/models.py:24
+#, python-format
+msgid "Cart %(id)i"
+msgstr "Коризна %(id)i"
+
+#: order/models.py:38 order/models.py:188
+msgid "Count"
+msgstr "Кількість"
+
+#: order/models.py:45
+msgid "Cart item"
+msgstr "Пункт корзини"
+
+#: order/models.py:46
+msgid "Cart items"
+msgstr "Пункти корзини"
+
+#: order/models.py:50
+#, python-format
+msgid "Cart item \"%(menu_item_title)s %(menu_item_volume)s\""
+msgstr "Пункт корзини \"%(menu_item_title)s (%(menu_item_volume)s)\""
+
+#: order/models.py:55
+#, python-format
+msgid "Cart item \"%(menu_item_title)s\""
+msgstr "Пункт корзини \"%(menu_item_title)s\""
+
+#: order/models.py:63
+msgctxt "Name"
+msgid "Human name"
+msgstr "Ім'я"
+
+#: order/models.py:64 settings/models.py:29
+msgid "Phone number"
+msgstr "Номер телефону"
+
+#: order/models.py:64
+msgid "Format: \"+380123456789\""
+msgstr "Формат: \"+380123456789\""
+
+#: order/models.py:70 order/models.py:79
+msgid "Customer"
+msgstr "Покупець"
+
+#: order/models.py:71
+msgid "Customers"
+msgstr "Покупці"
+
+#: order/models.py:74
+#, python-format
+msgid "Customer %(phone_number)s"
+msgstr "Покупець %(phone_number)s"
+
+#: order/models.py:82
+msgid "Courier"
+msgstr "Кур'єр"
+
+#: order/models.py:83
+msgctxt "delivery method"
+msgid "Self-pickup"
+msgstr "Самовивіз"
+
+#: order/models.py:85
+msgid "Delivery method"
+msgstr "Спосіб доставки"
+
+#: order/models.py:86
+msgid "Self-pickup time"
+msgstr "Час самовивозу"
+
+#: order/models.py:88
+msgid "Peoples count"
+msgstr "Кількість осіб"
+
+#: order/models.py:89
+msgid "Customer comment"
+msgstr "Коментар покупця"
+
+#: order/models.py:92
+msgid "Cash"
+msgstr "Готівка"
+
+#: order/models.py:93
+msgid "Card"
+msgstr "Картка"
+
+#: order/models.py:94
+msgid "LiqPay"
+msgstr ""
+
+#: order/models.py:96
+msgid "Payment method"
+msgstr "Спосіб оплати"
+
+#: order/models.py:97
+msgid "Prepayment required"
+msgstr "Передоплата вимагається"
+
+#: order/models.py:99
+msgid "Rejected"
+msgstr "Відхилено"
+
+#: order/models.py:106
+msgid "Orders"
+msgstr "Замовлення"
+
+#: order/models.py:109
+#, python-format
+msgid "Order %(id)i"
+msgstr "Замовлення %(id)i"
+
+#: order/models.py:122
+msgctxt "the name of city or village"
+msgid "Settlement"
+msgstr "Населений пункт"
+
+#: order/models.py:123
+msgid "Street"
+msgstr "Вулиця"
+
+#: order/models.py:124
+msgid "Building number"
+msgstr "Номер будинку"
+
+#: order/models.py:126
+msgid "Apartment number"
+msgstr "Номер квартири"
+
+#: order/models.py:127
+msgid "Entrance number"
+msgstr "Під'їзд"
+
+#: order/models.py:128
+msgid "Floor number"
+msgstr "Поверх"
+
+#: order/models.py:129
+msgid "Door phone number"
+msgstr "Домофон"
+
+#: order/models.py:132 order/models.py:136
+msgid "Delivery address"
+msgstr "Адреса доставки"
+
+#: order/models.py:133
+msgid "Delivery addresses"
+msgstr "Адреси доставок"
+
+#: order/models.py:143
+msgid "Prepayment"
+msgstr "Передоплата"
+
+#: order/models.py:144
+msgid "Full payment"
+msgstr "Повна оплата"
+
+#: order/models.py:146
+msgid "Type"
+msgstr "Тип"
+
+#: order/models.py:149
+msgid "Paid"
+msgstr "Оплачено"
+
+#: order/models.py:150
+msgid "Not paid"
+msgstr "Не оплачено"
+
+#: order/models.py:152
+msgid "Status"
+msgstr "Статус"
+
+#: order/models.py:154
+msgid "Amount"
+msgstr "Сума"
+
+#: order/models.py:156
+msgid "Additional data"
+msgstr "Додаткова інформація"
+
+#: order/models.py:159
+msgid "Order transaction"
+msgstr "Транзакція замовлення"
+
+#: order/models.py:160
+msgid "Order transactions"
+msgstr "Транзакції замовлень"
+
+#: order/models.py:163
+#, python-format
+msgid "Transaction ID %(id)i (Order ID %(order_id)i)"
+msgstr "Транзакція ID %(id)i (Замовлення ID %(order_id)i)"
+
+#: order/models.py:173
+#, python-format
+msgid "Prepayment for order ID %(order_id)s"
+msgstr "Передплата замовлення ID %(order_id)s"
+
+#: order/models.py:176 order/models.py:178
+#, python-format
+msgid "Payment for order ID %(order_id)s"
+msgstr "Оплата замовлення ID %(order_id)s"
+
+#: order/models.py:196 order/models.py:214
+msgid "Order item"
+msgstr "Пункт замовлення"
+
+#: order/models.py:197
+msgid "Order items"
+msgstr "Пункти замовлення"
+
+#: order/models.py:201
+#, python-format
+msgid "Order item \"%(item_title)s (%(item_volume)s)\""
+msgstr "Пункт замовлення \"%(item_title)s (%(item_volume)s)\""
+
+#: order/models.py:206
+#, python-format
+msgid "Order item \"%(item_title)s\""
+msgstr "Пункт замовлення \"%(item_title)s\""
+
+#: order/models.py:224
+msgid "Addition item"
+msgstr "Пункт додатку"
+
+#: order/models.py:225
+msgid "Addition items"
+msgstr "Пункти додатків"
+
+#: order/models.py:228
+#, python-format
+msgid "Addition item \"%(title)s\""
+msgstr "Пункт додатку \"%(title)s\""
+
+#: order/validators.py:9
+msgid "Phone number has to be in \"+380999999999\" format"
+msgstr "Номер телефону повинен бути в форматі \"+380999999999\""
+
+#: settings/apps.py:8 settings/models.py:54 settings/models.py:55
+#: settings/models.py:58
+msgid "Settings"
+msgstr "Налаштування"
+
+#: settings/models.py:11
+msgid "Minimum order completion time"
+msgstr "Мінімальний час виконання замовлення"
+
+#: settings/models.py:13
+msgid "Order prepayment start from"
+msgstr "Передоплата замовлення починається з"
+
+#: settings/models.py:16
+msgid "Amount, from which prepayment will be required"
+msgstr "Сума, з якої буде вимагатись передоплата"
+
+#: settings/models.py:21
+msgid "Prepayment percent"
+msgstr "Відсоток передоплати"
+
+#: settings/models.py:24
+msgid "From total order amount"
+msgstr "Від загальної суми замовлення"
+
+#: settings/models.py:31
+msgid "Instagram URL"
+msgstr "Посилання Instagram"
+
+#: settings/models.py:32
+msgid "Facebook URL"
+msgstr "Посилання Facebook"
+
+#: settings/models.py:34
+msgid "Address"
+msgstr "Адреса"
+
+#: settings/models.py:35
+msgid "Address URL"
+msgstr "Посилання на адресу"
+
+#: settings/models.py:37
+msgid "Work schedule"
+msgstr "Робочий графік"
+
+#: settings/models.py:38
+msgid "Work schedule on weekend"
+msgstr "Робочий графік у вихідні"
+
+#: settings/models.py:40
+msgid "Delivery available"
+msgstr "Доставка доступна"
+
+#: settings/models.py:41
+msgid "Delivery time within city"
+msgstr "Час доставки в межах міста"
+
+#: settings/models.py:42
+msgid "Delivery time beyond city"
+msgstr "Час доставки за містом"
+
+#: settings/models.py:44
+msgid "Delivery cost"
+msgstr "Вартість доставки"
+
+#: settings/models.py:51
+msgid "Notify users"
+msgstr "Сповіщати користувачів"
+
+#: settings/models.py:51
+msgid ""
+"Hold down \"Control\", or \"Command\" on a Mac, to select more than one.\n"
+"Users that will receive new order notifications.\n"
+"Note: users must have email filled in their profile"
+msgstr ""
+"Затисніть клавішу \"Control\", або \"Command\" на Mac, щоб обрати більше "
+"однієї опції.\n"
+"Користувачі, які отримуватимуть сповіщення про нові замовлення.\n"
+"Зверніть увагу: користувач повинен мати заповнений email в своєму профілі"
+
+#~ msgid "Total amount"
+#~ msgstr "Загальна сума"
+
+#~ msgid "Subtitle"
+#~ msgstr "Підзаголовок"
+
+#~ msgid "Parent"
+#~ msgstr "Предок"
+
+#~ msgctxt "Self-pickup"
+#~ msgid "Delivery method"
+#~ msgstr "Самовивіз"
+
+#~ msgid "Delivery methods"
+#~ msgstr "Способи доставки"

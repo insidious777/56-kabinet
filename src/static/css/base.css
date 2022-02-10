@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Turismo CF';
+    src: url(../fonts/TurismoCF-100.ttf) format("truetype");
+}
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+button{
+    outline: none;
+    border: none;
+}
+
+body{
+    background-color: #f2e9e4;
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 21px;
+}
+
+.text-color-secondary {
+    color: #6B6161;
+}
+
+.d-none {
+    display: none !important;
+}

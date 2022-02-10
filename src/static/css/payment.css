@@ -1,0 +1,70 @@
+.payment-form{
+    background: rgba(27, 27, 25, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.payment-form-content{
+    padding: 30px;
+    width: 50%;
+    background: #F2E9E4;
+    border: 1px solid #9E421B;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
+    border-radius: 2px;
+    position: relative;
+}
+
+.payment-form-title {
+    font-family: "Turismo CF", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.payment-form-header {
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.payment-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.reject-order-button {
+    cursor: pointer;
+    color: white;
+    background: #dc3545;
+    padding: 10px 25px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.pay-order-button form{
+    padding-top: 5px;
+}
+
+@media(max-width: 900px) {
+    .payment-buttons{
+        flex-direction: column-reverse;
+    }
+
+    .pay-order-button form{
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .payment-form-content{
+        width: 80%;
+    }
+}

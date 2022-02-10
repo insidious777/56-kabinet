@@ -1,0 +1,137 @@
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin: 0 7vw;
+    align-items: center;
+    height: 70px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.header-logo{
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+}
+
+.header-right-box{
+    display: flex;
+    align-items: center;
+}
+
+
+.header-right-box-instagram{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    color: black;
+}
+
+.header-right-box-instagram:visited{
+    color: black;
+}
+
+.header-right-box-facebook{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    color: black;
+}
+
+.header-right-box-facebook:visited{
+    color: black;
+}
+
+.header-cart-button{
+    background-color: #09A76D;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header-cart-button img {
+    padding-right: 10px;
+}
+
+.tel{
+    color: #6B6161;
+    font-weight: 700;
+    margin-left: 10px;
+    color: #252525;
+}
+
+.work-schedule{
+    font-weight: 700;
+    color: #252525;
+}
+
+.tel:visited{
+    color: #6B6161;
+}
+
+.header-hours a{
+    color: black;
+    font-weight: 600;
+}
+
+.header-right-box-buttons{
+    display: flex;
+}
+
+.location-text{
+    display: inline;
+    color: #6B6161;
+}
+
+.location-link{
+    color: black;
+    font-weight: bold;
+}
+
+@media(max-width: 1150px){
+    header{
+        flex-direction: column;
+        height: inherit;
+    }
+
+    .header-logo{
+        top:25px;
+    }
+
+    .header-right-box{
+        flex-direction: column;
+    }
+
+    .header-left-box{
+        flex-direction: column;
+        display: flex;
+        margin-top: 100px;
+        align-items: center;
+    }
+    .header-phone{
+        margin-bottom: 10px;
+    }
+
+    .header-hours{
+        margin: 10px 0;
+    }
+
+    .header-right-box-instagram{
+        margin-left: 0;
+    }
+
+}
+
+@media(max-width: 470px){
+    .location-text{
+        display: block;
+    }
+
+}

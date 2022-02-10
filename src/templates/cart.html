@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block head_scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/loading.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/alert.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/cart.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/form.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/imask.js' %}" type="text/javascript"></script>
+
+
+{% endblock %}
+
+{% block page %}
+    <div class="content">
+        <h1 class="title">Оформлення замовлення</h1>
+        <div class="colons">
+            {% block cart-col%}
+            <div class="col-left">
+
+                {% if excluded_cart_items %}
+                    <div class="warning">
+                        Оскільки час на замовлення деяких страв завершено, з вашого замовлення було видалено наступні пункти:
+                        <ul>
+                            {% for cart_item in excluded_cart_items %}
+                                <li>{{ cart_item.menu_item.title }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <table>
+                    <tr class="table-header">
+                        <th>Страва на доставку</th>
+                        <th>Кількість</th>
+                        <th class="table-header-price">Ціна</th>
+                    </tr>
+
+                    {% for cart_item in cart.items.all %}
+                    <tr class="table-item">
+                        <td>
+                            <h5>{{ cart_item.menu_item.title }}</h5>
+                            <div class="additions">
+
+                                {% for addition in cart_item.additions.all %}
+                                <div class="addition-item">
+                                    <img class="addition-delete-button" data-menu-id="{{ cart_item.id }}" data-addition-id="{{ addition.id }}" src="{% static 'img/cancel.png' %}"/>
+                                    <p>{{ addition.title }}</p>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </td>
+                        <td data-menu-id="{{ cart_item.id }}" class="count-box">
+                            <button class="count-box-minus">-</button>
+                            <p>{{ cart_item.count }}</p>
+                            <button class="count-box-plus">+</button>
+                        </td>
+                        <td class="price-box-wrapper">
+                            <div class="price-box">
+                                <p>{{ cart_item.total_amount }}</p>
+                                <img data-item-id="{{ cart_item.id }}" class="item-delete-button" src="{% static 'img/cancel.png' %}"/>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                <div class="table-bottom">
+                    <div class="table-bottom-left">
+                        <p>Максимальний час доставки замовлення
+                            {{ delivery_time_within_city }} хвилин в межах міста / {{ delivery_time_beyond_city }} хвилин за містом.
+                            Час доставки може бути збільшено,
+                            про це Вас повідомить оператор.</p>
+                    </div>
+                    <div class="table-bottom-right">
+                        <div class="table-bottom-right-row">
+                            <p class="grey">Сума:</p>
+                            <p class="items-price">{{ cart.total_amount }} грн</p>
+                        </div>
+                        <div class="table-bottom-right-row">
+                            <p class="grey">Вартість доставки:</p>
+                            <p style="display: none" class="delivery-price delivery-courier">{{ site_settings.delivery_cost }} грн</p>
+                            <p class="delivery-price delivery-self-pickup">0 грн</p>
+                        </div>
+                        <div class="table-bottom-right-row">
+                            <p class="grey">Разом до оплати:</p>
+                            <p class="total-price">506 грн</p>
+                            <p style="display: none" class="total-price-delivery">506 грн</p>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="clear-cart-button">
+                    <img src="{% static 'img/cart-brown.png' %}"/>
+                    <p>Очистити корзину</p>
+                </h5>
+            </div>
+            {% endblock %}
+            <div class="col-right">
+                <form>
+                    <div class="form-left">
+                        <div class="option-box">
+                            <p class="dark-grey">Спосіб доставки:</p>
+                            <div class="option-item">
+                                <input id="0" name="delivery-type" type="radio">
+                                <label name="delivery-type-label" for="0">Доставка кур'єром</label>
+                            </div>
+                            <div class="option-item">
+                                <input id="1" name="delivery-type" checked type="radio">
+                                <label name="delivery-type-label" for="1">Самовивіз</label>
+                            </div>
+                        </div>
+
+                        <div class="option-box">
+                            <p class="dark-grey">Коли вам буде зручно забрати:</p>
+                            <div class="option-item">
+                                <input id="2" checked class="soon-time-input" name="delivery-time" type="radio">
+                                <label for="2" class="soon-time">Найближчим часом (15:30)</label>
+                            </div>
+                            <div class="option-item">
+                                <input id="3" class="other-time-input" name="delivery-time" type="radio">
+                                <label for="3">Вказати інший час</label>
+                            </div>
+
+                            <div style="display: none" class="other-time-colons">
+                                <div class="other-time-colon">
+                                    <p>Год:</p>
+                                    <input class="other-time-hours">
+                                </div>
+                                <p>:</p>
+                                <div class="other-time-colon">
+                                    <p>Хв:</p>
+                                    <input class="other-time-minutes">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="option-box">
+                            <p class="dark-grey">Спосіб оплати:</p>
+                            <div class="option-item">
+                                <input id="4" checked class="payment-type-input"  data-payment-type="CASH" name="payment-type" type="radio">
+                                <label for="4">Готівкою при отриманні</label>
+                            </div>
+                            <div class="option-item">
+                                <input id="5" class="payment-type-input"  data-payment-type="CARD" name="payment-type" type="radio">
+                                <label for="5">Карткою при отриманні</label>
+                            </div>
+                            <div class="option-item option-item-disabled">
+                                <input disabled id="6" class="payment-type-input" data-payment-type="LIQPAY" name="payment-type" type="radio">
+                                <label for="6">Онлайн LiqPay</label>
+                            </div>
+                        </div>
+                        <p class="dark-grey">При замовленні на суму {{ site_settings.order_prepayment_start_from }} грн і більше, передбачається передоплата {{ site_settings.prepayment_percent }}% від суми замовлення. Дякуємо за розуміння :)</p>
+                    </div>
+                    <div class="form-right">
+                        <label class="dark-grey">Ім'я:*</label>
+                        <input class="name-input"/>
+                        <label class="dark-grey">Телефон:*</label>
+                        <input class="phone-number-input"/>
+                        <div style="display: none" class="delivery-form">
+                            <label class="dark-grey">Населенний пункт:*</label>
+                            <input class="settlement-input"/>
+                            <label class="dark-grey">Вулиця:*</label>
+                            <input class="street-input"/>
+                            <div class="form-input-row">
+                                <div class="form-input-row-item">
+                                    <label class="dark-grey">№ будинку:*</label>
+                                    <input class="building-number-input"/>
+                                </div>
+                                <div class="form-input-row-item">
+                                    <label class="dark-grey">Квартира:*</label>
+                                    <input class="apartment-number-input"/>
+                                </div>
+                            </div>
+                            <div class="form-input-row">
+                                <div class="form-input-row-item">
+                                    <label class="dark-grey">Під'їзд:*</label>
+                                    <input class="entrance-number-input"/>
+                                </div>
+                                <div class="form-input-row-item">
+                                    <label class="dark-grey">Поверх:*</label>
+                                    <input class="floor-number-input"/>
+                                </div>
+                            </div>
+                            <div class="form-input-row">
+                                <div class="form-input-row-item">
+                                    <label class="dark-grey">Домофон:*</label>
+                                    <input class="door-phone-input"/>
+                                </div>
+                                <div class="form-input-row-item">
+                                    <label class="dark-grey">Кількість осіб:*</label>
+                                    <input class="peoples-input"/>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="dark-grey">Коментар:</label>
+                        <textarea class="description-input"></textarea>
+                        <button class="checkout-button">
+                            <img src="{% static 'img/bag2.png' %}"/>
+                            <span>Оформити замовлення</span>
+                            <p class="cart-price-without-delivery">{{ cart.total_amount }} грн</p>
+                            <p style="display: none" class="cart-price-with-delivery">{{ cart.total_amount }} грн</p>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div style="display: none" class="success-modal">
+            <div class="success-modal-content">
+                <h2>дякуємо за замовлення</h2>
+                <p>Протягом 5 хвилин з вами зв'яжеться менеджер для уточнення замовлення</p>
+                <button onclick="window.location.href = '/'">На головну</button>
+            </div>
+        </div>
+
+        <p style="display: none" class="csrf">{% csrf_token %}</p>
+        <p style="display: none" class="min-order-completion-time">{{ site_settings.min_order_completion_time }}</p>
+    </div>
+{% endblock %}
